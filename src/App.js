@@ -2,6 +2,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Blogs from './components/Pages/Blogs/Blogs';
+import Footer from './components/Pages/Footer/Footer';
 
 
 import Home from './components/Pages/Home/Home';
@@ -10,15 +11,15 @@ import Navbar from './components/Pages/Navbar/Navbar';
 
 function App() {
   return (
-    <div >
+    <section >
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/login' element={<Login />} />
-
       </Routes>
-    </div>
+      <Footer />
+    </section>
   );
 }
 

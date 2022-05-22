@@ -9,7 +9,7 @@ const Banner = () => {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 5
+      items: 1
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -47,7 +47,7 @@ const Banner = () => {
         responsive={responsive}>
         <div className="banner-item1">
           <div className="item-content">
-            <h1 className="text-5xl ">YOUR CAR SAVE OUR HAND !</h1>
+            <h1 className="lg:text-5xl text-3xl md:text-5xl ">YOUR CAR SAVE IN OUR HANDS !</h1>
             <p className="py-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ut optio soluta. Deleniti voluptatem ratione error animi ducimus odit minima facilis esse delectus quas earum distinctio, necessitatibus voluptatum dolore ipsa?</p>
             <button className="btn btn-primary">SIGN UP NOW</button>
           </div>
@@ -56,7 +56,7 @@ const Banner = () => {
 
         <div className="banner-item2">
         <div className="item-content">
-            <h1 className="text-5xl ">YOUR CAR SAVE OUR HAND !</h1>
+            <h1 className="lg:text-5xl text-3xl md:text-5xl ">YOUR CAR SAVE OUR HAND !</h1>
             <p className="py-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ut optio soluta. Deleniti voluptatem ratione error animi ducimus odit minima facilis esse delectus quas earum distinctio, necessitatibus voluptatum dolore ipsa?</p>
             <button className="btn btn-primary">SIGN UP NOW</button>
           </div>
@@ -64,7 +64,7 @@ const Banner = () => {
 
         <div className="banner-item3">
         <div className="item-content">
-            <h1 className="text-5xl ">YOUR CAR SAVE OUR HAND !</h1>
+            <h1 className="lg:text-5xl text-3xl md:text-5xl ">YOUR CAR SAVE OUR HAND !</h1>
             <p className="py-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ut optio soluta. Deleniti voluptatem ratione error animi ducimus odit minima facilis esse delectus quas earum distinctio, necessitatibus voluptatum dolore ipsa?</p>
             <button className="btn btn-primary">SIGN UP NOW</button>
           </div>

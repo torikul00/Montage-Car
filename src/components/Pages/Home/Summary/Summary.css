@@ -1,0 +1,22 @@
+.summary-contaier {
+    width: 100%;
+    height: 400px;
+    background-image: url(../../../../images/banner3.jpg);
+    background-size: cover;
+    margin: 100px 0px;
+
+}
+
+.overly {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.596);
+    color: white;
+}
+
+@media only screen and  (max-width:600px) {
+    
+    .overly{
+        
+    }
+}
