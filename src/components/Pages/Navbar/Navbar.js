@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../../../images/logo.png'
 const Navbar = () => {
 
@@ -13,24 +14,26 @@ const Navbar = () => {
                         </label>
                         <ul tabindex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             {/* responsive links */}
-                            <li><a>Home</a></li>
+                            <li><Link to='/'>Home</Link></li>
                             <li>
-                                <a>Blogs</a>
+                                <Link to='/blogs'>Blogs</Link>
                             </li>
-                            <li><a>My Profile</a></li>
+                            <li><Link to=''>My Profile</Link></li>
+                            <li><Link to='/login'>Login</Link></li>
                         </ul>
                     </div>
-                    <a className=" w-36">
+                    <Link to='' className=" w-36">
                         <img src={logo} alt="" />
-                    </a>
+                    </Link>
                 </div>
                 <div className="navbar-end hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
-                        <li><a>Home</a></li>
+                        <li><Link to='/'>Home</Link></li>
                         <li>
-                            <a>Blogs</a>
+                            <Link to='/blogs'>Blogs</Link>
                         </li>
-                        <li><a>My Profile</a></li>
+                        <li><Link to=''>My Profile</Link></li>
+                        <li><Link to='/login'>Login</Link></li>
                     </ul>
                 </div>
 

@@ -1,0 +1,50 @@
+[
+    {
+        "name":"Wheel",
+        "image" : "../src/images/parts/Screenshot_1.jpg",
+        "description":"The quick brown fox jumps ove the lazy dog",
+        "min_quantity":100,
+        "price": 230,
+        "avai_quantity":1303
+    },
+    {
+        "name":"Wheel",
+        "image" : "../src/images/parts/Screenshot_1.jpg",
+        "description":"The quick brown fox jumps ove the lazy dog",
+        "min_quantity":100,
+        "price": 230,
+        "avai_quantity":1303
+    },
+    {
+        "name":"Wheel",
+        "image" : "../src/images/parts/Screenshot_1.jpg",
+        "description":"The quick brown fox jumps ove the lazy dog",
+        "min_quantity":100,
+        "price": 230,
+        "avai_quantity":1303
+    },
+    {
+        "name":"Wheel",
+        "image" : "../src/images/parts/Screenshot_1.jpg",
+        "description":"The quick brown fox jumps ove the lazy dog",
+        "min_quantity":100,
+        "price": 230,
+        "avai_quantity":1303
+    },
+    {
+        "name":"Wheel",
+        "image" : "../src/images/parts/Screenshot_1.jpg",
+        "description":"The quick brown fox jumps ove the lazy dog",
+        "min_quantity":100,
+        "price": 230,
+        "avai_quantity":1303
+    },
+    {
+        "name":"Wheel",
+        "image" : "../src/images/parts/Screenshot_1.jpg",
+        "description":"The quick brown fox jumps ove the lazy dog",
+        "min_quantity":100,
+        "price": 230,
+        "avai_quantity":1303
+    }
+]
