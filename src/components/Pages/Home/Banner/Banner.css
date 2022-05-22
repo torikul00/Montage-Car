@@ -36,16 +36,7 @@
     display: flex;
     align-items: center;
 }
-.banner{
-    height: calc(100vh - 60px);
-    width: 100%;
-    background-image: url(../../../../images/banner3.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: white;
-    display: flex;
-    align-items: center;
-}
+
 
 @media only screen and (max-width: 600px) {
     

@@ -1,6 +1,7 @@
 import React from 'react';
 import './Summary.css'
 import { BsPeopleFill,BsBuilding } from 'react-icons/bs';
+import { AiFillDollarCircle} from 'react-icons/ai';
 import {MdReviews } from 'react-icons/md';
 const Summary = () => {
     return (
@@ -24,9 +25,9 @@ const Summary = () => {
                         <h1 className='text-2xl'>Positive Review</h1>
                 </div>
                 <div className='flex justify-center items-center flex-col'>
-                    <BsPeopleFill className='text-6xl text-primary' />
-                        <h1 className='text-4xl mt-4'>14+</h1>
-                        <h1 className='text-2xl'>Partner Companies</h1>
+                    <AiFillDollarCircle className='text-6xl text-primary' />
+                        <h1 className='text-4xl mt-4'>150M +</h1>
+                        <h1 className='text-2xl'>Annual Revenue</h1>
                 </div>
 
             </div>
