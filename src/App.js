@@ -2,7 +2,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Blogs from './components/Pages/Blogs/Blogs';
-import Footer from './components/Pages/Footer/Footer';
 
 
 import Home from './components/Pages/Home/Home';
@@ -18,7 +17,7 @@ function App() {
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/login' element={<Login />} />
       </Routes>
-      <Footer />
+
     </section>
   );
 }

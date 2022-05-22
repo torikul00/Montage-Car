@@ -1,4 +1,5 @@
 import React from 'react';
+import { AiFillStar } from 'react-icons/ai';
 
 const UserReviewCard = ({ review }) => {
     const { name, description, image } = review
@@ -16,9 +17,14 @@ const UserReviewCard = ({ review }) => {
             <div class="card-body">
                 <h2 class="card-title">{name}</h2>
                 <p>{ description}</p>
-                <div class="card-actions justify-end">
-                    <button class="btn btn-primary">Buy Now</button>
-                </div>
+                <div className='flex'>
+               
+                <AiFillStar className='star' />
+                <AiFillStar className='star'/>
+                <AiFillStar className='star' />
+                <AiFillStar className='star' />
+                <AiFillStar className='star' />
+               </div>
             </div>
         </div>
 

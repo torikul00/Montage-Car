@@ -8,3 +8,9 @@
     height:300px;
     background-color: red;
 }
+.star{
+    display:inline;
+    color: gold;
+    font-size: 20px;
+
+}
