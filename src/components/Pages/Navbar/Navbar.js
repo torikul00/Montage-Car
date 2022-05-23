@@ -1,9 +1,17 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { NavLink } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import logo from '../../../images/logo.png'
+import auth from '../../Shared/firebase.init';
 const Navbar = () => {
+    let [user] = useAuthState(auth);
 
-
+    const handleLogout = () => {
+        signOut(auth)
+        toast.success('Logout successful')
+    }
     return (
         <div>
             <div className="navbar bg-base-100 lg:px-16">
@@ -14,26 +22,34 @@ const Navbar = () => {
                         </label>
                         <ul tabindex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             {/* responsive links */}
-                            <li><Link to='/'>Home</Link></li>
+                            <li><NavLink to='/'>Home</NavLink></li>
                             <li>
-                                <Link to='/blogs'>Blogs</Link>
+                                <NavLink to='/blogs'>Blogs</NavLink>
                             </li>
-                            <li><Link to=''>My Profile</Link></li>
-                            <li><Link to='/login'>Login</Link></li>
+                            <li>
+                                <NavLink to='/dashboard'>Dashboard</NavLink>
+                            </li>
+                            <li><NavLink to='/login'>Login</NavLink></li>
                         </ul>
                     </div>
-                    <Link to='' className=" w-36">
+                    <NavLink to='' className=" w-36">
                         <img src={logo} alt="" />
-                    </Link>
+                    </NavLink>
                 </div>
                 <div className="navbar-end hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
-                        <li><Link to='/'>Home</Link></li>
+                        <li><NavLink to='/'>Home</NavLink></li>
                         <li>
-                            <Link to='/blogs'>Blogs</Link>
+                            <NavLink to='/blogs'>Blogs</NavLink>
                         </li>
-                        <li><Link to=''>My Profile</Link></li>
-                        <li><Link to='/login'>Login</Link></li>
+                        <li>
+                            <NavLink to='/dashboard'>Dashboard</NavLink>
+                        </li>
+                        {user ?   <li><buttton  onClick={handleLogout}>Logout</buttton></li>
+                            :
+                          
+                            <li><NavLink to='/login'>Login</NavLink></li>
+                        }
                     </ul>
                 </div>
 

@@ -1,42 +1,50 @@
 import React from 'react';
-import './Login.css'
-import loginPic from '../../../images/login.gif'
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth'
-import auth from '../../Shared/firebase.init'
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth'
+import auth from '../../Shared/firebase.init';
 import { useForm } from "react-hook-form";
-import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Loading from '../../Shared/Loading/Loading';
-
-const Login = () => {
-    const [signInWithGoogle, gUser, gError] = useSignInWithGoogle(auth);
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import loginPic from '../../../images/login.gif'
+import { toast } from 'react-toastify';
+const SignUp = () => {
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [
-        signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
         user,
         loading,
         error,
-    ] = useSignInWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth);
+    const [updateProfile, updating, updatError] = useUpdateProfile(auth);
     const navigate = useNavigate()
     let location = useLocation();
     let from = location.state?.from?.pathname || "/"
+
     let signInError
-    if (loading) {
+    if (loading || updating) {
         return <Loading />
     }
-    if (gUser) {
-        console.log(gUser)
-    }
-    if (error || gError) {
+    if (error || gError || updatError) {
 
-        signInError = <p className='my-4 text-red-500'>{error?.message || gError?.message}</p>
+       
+        if (error.message.includes('email-already')) {
+
+            signInError = <p className='my-4 text-red-500'>Email already exist</p>
+        }
+        else {
+            signInError = <p className='my-4 text-red-500'>Something went wrong</p>
+       }
 
     }
     if (user || gUser) {
+        toast.success('Sign up successful',{toastId:'signup'})
         navigate(from, { replace: true });
     }
-    const onSubmit = data => {
+    const onSubmit = async data => {
 
-        signInWithEmailAndPassword(data.email, data.password)
+        await createUserWithEmailAndPassword(data.email, data.password)
+        await updateProfile({ displayName: data.name })
+
     }
     return (
         <section className='flex justify-center items-center bg-black w-full  py-12 '>
@@ -49,13 +57,13 @@ const Login = () => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <h1 className="text-3xl text-center my-4">Sign Up Here</h1>
 
-                        <div className="form-control w-full max-w-xs">
+                        <div className="form-control w-full ">
 
-                           
+
                             <input
                                 type="text"
                                 placeholder="Name"
-                                className="input input-bordered w-full max-w-xs"
+                                className="input input-bordered w-full"
                                 {...register("name", {
                                     required: {
                                         value: true,
@@ -71,13 +79,13 @@ const Login = () => {
 
                             </label>
                         </div>
-                        <div className="form-control w-full max-w-xs">
+                        <div className="form-control w-full ">
 
-                           
+
                             <input
                                 type="email"
                                 placeholder="Email"
-                                className="input input-bordered w-full max-w-xs"
+                                className="input input-bordered w-full "
                                 {...register("email", {
                                     required: {
                                         value: true,
@@ -96,13 +104,13 @@ const Login = () => {
 
                             </label>
                         </div>
-                        <div className="form-control w-full max-w-xs">
+                        <div className="form-control w-full">
 
-                            
+
                             <input
                                 type="Password"
                                 placeholder="Your Password"
-                                className="input input-bordered w-full max-w-xs"
+                                className="input input-bordered w-full "
                                 {...register("password", {
                                     required: {
                                         value: true,
@@ -124,7 +132,7 @@ const Login = () => {
                         {
                             signInError
                         }
-                        <button type='submit' className="btn btn-primary text-white-500 w-full max-w-xs">Sign Up</button>
+                        <button type='submit' className="btn btn-primary text-white-500 w-full ">Sign Up</button>
                         <p className='my-4'>Already have an account ? <Link className='text-primary' to='/login'>Login</Link> </p>
                     </form>
 
@@ -138,4 +146,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default SignUp;

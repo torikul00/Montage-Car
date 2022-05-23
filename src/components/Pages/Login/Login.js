@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Login.css'
 import loginPic from '../../../images/login.gif'
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth'
@@ -6,10 +6,12 @@ import auth from '../../Shared/firebase.init'
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Loading from '../../Shared/Loading/Loading';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const [signInWithGoogle, gUser, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const [customeError, setCustomeError] = useState('')
     const [
         signInWithEmailAndPassword,
         user,
@@ -23,15 +25,14 @@ const Login = () => {
     if (loading) {
         return <Loading />
     }
-    if (gUser) {
-        console.log(gUser)
-    }
+
     if (error || gError) {
 
-        signInError = <p className='my-4 text-red-500'>{error?.message || gError?.message}</p>
+        signInError = <p className='my-4 text-red-500'>Please check Email and Password</p>
 
     }
     if (user || gUser) {
+        toast.success('Login successful', { toastId: 'login' })
         navigate(from, { replace: true });
     }
     const onSubmit = data => {
@@ -46,13 +47,13 @@ const Login = () => {
                 <div className='form-container'>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <h1 className="text-4xl text-center  my-4 text-primary">Login Here</h1>
-                        <div className="form-control w-full max-w-xs">
+                        <div className="form-control w-full">
 
 
                             <input
                                 type="email"
                                 placeholder="Email"
-                                className="input input-bordered w-full max-w-xs"
+                                className="input input-bordered w-full"
                                 {...register("email", {
                                     required: {
                                         value: true,
@@ -71,13 +72,13 @@ const Login = () => {
 
                             </label>
                         </div>
-                        <div className="form-control w-full max-w-xs">
+                        <div className="form-control w-full">
 
 
                             <input
                                 type="Password"
                                 placeholder="Your Password"
-                                className="input input-bordered w-full max-w-xs"
+                                className="input input-bordered w-full"
                                 {...register("password", {
                                     required: {
                                         value: true,
@@ -99,7 +100,7 @@ const Login = () => {
                         {
                             signInError
                         }
-                        <button type='submit' className="btn btn-primary text-white-500 w-full max-w-xs">Login</button>
+                        <button type='submit' className="btn btn-primary  w-full">Login</button>
                         <p className='my-4'>New Here ? <Link className=' text-primary' to='/signUp '>Create new account</Link> </p>
                     </form>
 

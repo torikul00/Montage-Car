@@ -6,16 +6,23 @@ import Home from './components/Pages/Home/Home';
 import Login from './components/Pages/Login/Login';
 import SignUp from './components/Pages/Login/SignUp';
 import Navbar from './components/Pages/Navbar/Navbar';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import BuyParts from './components/Pages/BuyParts/BuyParts';
+import Dashboard from './components/Pages/Dashboard/Dashboard';
 
 function App() {
   return (
     <section >
+      <ToastContainer />
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signUp' element={<SignUp />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/buy-part/:id' element={<BuyParts />} />
       </Routes>
 
     </section>

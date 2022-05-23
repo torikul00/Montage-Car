@@ -1,50 +1,51 @@
 [
     {
-        "name":"Wheel",
-        "image" : "../src/images/parts/Screenshot_1.jpg",
-        "description":"The quick brown fox jumps ove the lazy dog",
+        "name":"Battery",
+        "image" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZmBXu4fnLU_LQr5mXPrUv0OJkdVrum8oRXw&usqp=CAU",
+        "description":"An automotive battery or car battery is a rechargeable battery that is used to start a motor vehicle",
         "min_quantity":100,
-        "price": 230,
-        "avai_quantity":1303
+        "price": 125,
+        "avai_quantity":989
+    },
+            
+    {
+        "name":"Bucket seat",
+        "image" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAr_UTgg4-p1AVPQVCEg8b9A3zDE6VYH-NYQ&usqp=CAU",
+        "description":"A bucket seat is a car seat contoured to hold one person, distinct from a flat bench seat designed to fit multiple people",
+        "min_quantity":100,
+        "price": 220,
+        "avai_quantity":232
     },
     {
-        "name":"Wheel",
-        "image" : "../src/images/parts/Screenshot_1.jpg",
-        "description":"The quick brown fox jumps ove the lazy dog",
+        "name":"Gear",
+        "image" : "https://image.shutterstock.com/image-photo/manual-six-gear-car-transmission-260nw-524804938.jpg",
+        "description":"Most automotive clutches are a dry single plate clutch with two friction surfaces. No matter the application, ",
         "min_quantity":100,
-        "price": 230,
-        "avai_quantity":1303
+        "price": 120,
+        "avai_quantity":865
     },
     {
-        "name":"Wheel",
-        "image" : "../src/images/parts/Screenshot_1.jpg",
-        "description":"The quick brown fox jumps ove the lazy dog",
+        "name":"Steering ",
+        "image" : "https://i.ibb.co/DWNsjK5/steering-2.png",
+        "description":"Too-light steering can make it hard to hold a straight course, while heavy steering can be tiring and may make a car seem unresponsive to your inputs.",
         "min_quantity":100,
-        "price": 230,
-        "avai_quantity":1303
+        "price":125 ,
+        "avai_quantity":768
     },
     {
-        "name":"Wheel",
-        "image" : "../src/images/parts/Screenshot_1.jpg",
-        "description":"The quick brown fox jumps ove the lazy dog",
+        "name":"Tire ",
+        "image" : "https://i.ibb.co/r3rQ4Zx/tires2.png",
+        "description":"The spelling tyre is used in the United Kingdom, Ireland, and most current and former Commonwealth nations after being revived in the 19th century",
         "min_quantity":100,
-        "price": 230,
-        "avai_quantity":1303
+        "price": 145,
+        "avai_quantity":1400
     },
     {
-        "name":"Wheel",
-        "image" : "../src/images/parts/Screenshot_1.jpg",
-        "description":"The quick brown fox jumps ove the lazy dog",
+        "name":"Engine",
+        "image" : "https://image.shutterstock.com/image-photo/rise-car-engine-unit-fly-600w-1519580192.jpg",
+        "description":"The engine consists of a fixed cylinder and a moving piston. The expanding combustion gases push the piston, which in turn rotates the crankshaft",
         "min_quantity":100,
-        "price": 230,
-        "avai_quantity":1303
-    },
-    {
-        "name":"Wheel",
-        "image" : "../src/images/parts/Screenshot_1.jpg",
-        "description":"The quick brown fox jumps ove the lazy dog",
-        "min_quantity":100,
-        "price": 230,
-        "avai_quantity":1303
+        "price": 160,
+        "avai_quantity":670
     }
 ]
