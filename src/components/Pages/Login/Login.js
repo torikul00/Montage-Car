@@ -38,12 +38,13 @@ const Login = () => {
         signInWithEmailAndPassword(data.email,data.password)
     }
     return (
-        <section className='flex justify-center items-center bg-black w-full h-screen py-12'>
+        <section className='flex justify-center items-center bg-black w-full h-screen py-12 '>
 
             <div className="login-container" >
+              
                 <div className='form-container'>
                     <form onSubmit={handleSubmit(onSubmit)}>
-
+                        <h1 className="text-4xl text-center  my-4 text-primary">Login Here</h1>
                         <div className="form-control w-full max-w-xs">
 
                             <label className="label">
@@ -102,7 +103,7 @@ const Login = () => {
                             signInError
                         }
                         <button type='submit' className="btn btn-primary text-white-500 w-full max-w-xs">Login</button>
-                        <p className='my-4'>New to Doctors Portal ? <Link className='text-secondary' to='/signUp'>Create new account</Link> </p>
+                        <p className='my-4'>New Here ? <Link className='text-secondary' to='/signUp'>Create new account</Link> </p>
                     </form> 
                 </div>
                 <div>

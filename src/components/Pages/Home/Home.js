@@ -1,5 +1,6 @@
 import React from 'react';
 import Footer from '../../Shared/Footer';
+import Loading from '../../Shared/Loading/Loading';
 import Banner from './Banner/Banner';
 import NewsLetter from './NewsLetter/NewsLetter';
 import Parts from './Parts/Parts';
@@ -11,6 +12,7 @@ const Home = () => {
    
     return (
         <div >
+            <Loading />
             <Banner />
             <Parts />
             <Summary />
