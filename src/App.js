@@ -10,6 +10,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import BuyParts from './components/Pages/BuyParts/BuyParts';
 import Dashboard from './components/Pages/Dashboard/Dashboard';
+import AddItem from './components/Pages/Dashboard/AddItem';
+import Users from './components/Pages/Dashboard/Users';
 
 function App() {
   return (
@@ -23,6 +25,14 @@ function App() {
         <Route path='/signUp' element={<SignUp />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/buy-part/:id' element={<BuyParts />} />
+
+
+        <Route path='/dashboard' element={
+          <Dashboard />} >
+
+          <Route index element={<Users />} />
+          <Route path='addItem' element={<AddItem />} />
+        </Route>
       </Routes>
 
     </section>
