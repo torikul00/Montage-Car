@@ -1,12 +1,12 @@
 .login-container {
     width: 80%;
-    height: 100%;
     background-size: cover;
     background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
+    padding: 30px;
 }
 
 .form-container {
@@ -17,3 +17,9 @@
     -webkit-box-shadow: 1px 2px 15px -4px rgba(0, 0, 0, 0.78);
     box-shadow: 1px 2px 15px -4px rgba(0, 0, 0, 0.78);
 }
+
+@media screen and (max-width: 600px) {
+    .login-container {
+        flex-direction: column;
+    }
+  }

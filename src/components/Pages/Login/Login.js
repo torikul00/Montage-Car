@@ -4,11 +4,11 @@ import loginPic from '../../../images/login.gif'
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth'
 import auth from '../../Shared/firebase.init'
 import { useForm } from "react-hook-form";
-import {Link, useLocation, useNavigate} from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Loading from '../../Shared/Loading/Loading';
 
 const Login = () => {
-    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, gUser, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [
         signInWithEmailAndPassword,
@@ -20,7 +20,7 @@ const Login = () => {
     let location = useLocation();
     let from = location.state?.from?.pathname || "/"
     let signInError
-    if (loading || gLoading) {
+    if (loading) {
         return <Loading />
     }
     if (gUser) {
@@ -29,28 +29,26 @@ const Login = () => {
     if (error || gError) {
 
         signInError = <p className='my-4 text-red-500'>{error?.message || gError?.message}</p>
-        
+
     }
-    if (user) {
+    if (user || gUser) {
         navigate(from, { replace: true });
     }
     const onSubmit = data => {
-       
-        signInWithEmailAndPassword(data.email,data.password)
+
+        signInWithEmailAndPassword(data.email, data.password)
     }
     return (
-        <section className='flex justify-center items-center bg-black w-full h-screen py-12 '>
+        <section className='flex justify-center items-center bg-black w-full  py-12 '>
 
             <div className="login-container" >
-              
+
                 <div className='form-container'>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <h1 className="text-4xl text-center  my-4 text-primary">Login Here</h1>
                         <div className="form-control w-full max-w-xs">
 
-                            <label className="label">
-                                <span className="label-text">Email</span>
-                            </label>
+
                             <input
                                 type="email"
                                 placeholder="Email"
@@ -75,9 +73,7 @@ const Login = () => {
                         </div>
                         <div className="form-control w-full max-w-xs">
 
-                            <label className="label">
-                                <span className="label-text">Password</span>
-                            </label>
+
                             <input
                                 type="Password"
                                 placeholder="Your Password"
@@ -104,10 +100,13 @@ const Login = () => {
                             signInError
                         }
                         <button type='submit' className="btn btn-primary text-white-500 w-full max-w-xs">Login</button>
-                        <p className='my-4'>New Here ? <Link className='text-secondary' to='/signUp'>Create new account</Link> </p>
-                    </form> 
+                        <p className='my-4'>New Here ? <Link className=' text-primary' to='/signUp '>Create new account</Link> </p>
+                    </form>
+
+                    <div className="divider">OR</div>
+                    <button onClick={() => signInWithGoogle()} className='btn btn-primary btn-outline w-full'>Continue with Google</button>
                 </div>
-                <div>
+                <div className='lg:block md:block hidden'>
                     <img src={loginPic} alt="" />
                 </div>
             </div>

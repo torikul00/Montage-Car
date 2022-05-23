@@ -1,59 +1,57 @@
 import React from 'react';
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth'
-import auth from '../../Shared/firebase.init';
+import './Login.css'
+import loginPic from '../../../images/login.gif'
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth'
+import auth from '../../Shared/firebase.init'
 import { useForm } from "react-hook-form";
-import Loading from '../../Shared/Loading/Loading';
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import Loading from '../../Shared/Loading/Loading';
 
-
-const SignUp = () => {
-    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+const Login = () => {
+    const [signInWithGoogle, gUser, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [
-        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
-    const [updateProfile, updating, updatError] = useUpdateProfile(auth);
+    ] = useSignInWithEmailAndPassword(auth);
     const navigate = useNavigate()
     let location = useLocation();
     let from = location.state?.from?.pathname || "/"
-
     let signInError
-    if (loading || gLoading || updating) {
+    if (loading) {
         return <Loading />
     }
     if (gUser) {
         console.log(gUser)
     }
-    if (error || gError || updatError) {
+    if (error || gError) {
 
-        signInError = <p className='my-4 text-red-500'>{error?.message || gError?.message || updatError?.message}</p>
+        signInError = <p className='my-4 text-red-500'>{error?.message || gError?.message}</p>
 
     }
-    if (user) {
+    if (user || gUser) {
         navigate(from, { replace: true });
     }
-    const onSubmit = async data => {
+    const onSubmit = data => {
 
-        await createUserWithEmailAndPassword(data.email, data.password)
-        await updateProfile({ displayName: data.name })
-
+        signInWithEmailAndPassword(data.email, data.password)
     }
     return (
-        <div className='flex justify-center items-center h-screen'>
-            <div className="card w-96 bg-base-100 shadow-xl">
-                <div className="card-body">
-                    <h2 className="text-center text-2xl font-bold">Sign Up</h2>
+        <section className='flex justify-center items-center bg-black w-full  py-12 '>
 
+            <div className="login-container" >
+                <div className='lg:block md:block hidden'>
+                    <img src={loginPic} alt="" />
+                </div>
+                <div className='form-container'>
                     <form onSubmit={handleSubmit(onSubmit)}>
+                        <h1 className="text-3xl text-center my-4">Sign Up Here</h1>
 
                         <div className="form-control w-full max-w-xs">
 
-                            <label className="label">
-                                <span className="label-text">Name</span>
-                            </label>
+                           
                             <input
                                 type="text"
                                 placeholder="Name"
@@ -75,9 +73,7 @@ const SignUp = () => {
                         </div>
                         <div className="form-control w-full max-w-xs">
 
-                            <label className="label">
-                                <span className="label-text">Email</span>
-                            </label>
+                           
                             <input
                                 type="email"
                                 placeholder="Email"
@@ -102,9 +98,7 @@ const SignUp = () => {
                         </div>
                         <div className="form-control w-full max-w-xs">
 
-                            <label className="label">
-                                <span className="label-text">Password</span>
-                            </label>
+                            
                             <input
                                 type="Password"
                                 placeholder="Your Password"
@@ -130,17 +124,18 @@ const SignUp = () => {
                         {
                             signInError
                         }
-                        <button type='submit' className="btn btn-accent text-white-500 w-full max-w-xs">Sign Up</button>
-                        <p className='my-4'>Already have an account ? <Link className='text-secondary' to='/login'>Login</Link> </p>
+                        <button type='submit' className="btn btn-primary text-white-500 w-full max-w-xs">Sign Up</button>
+                        <p className='my-4'>Already have an account ? <Link className='text-primary' to='/login'>Login</Link> </p>
                     </form>
 
-
                     <div className="divider">OR</div>
-                    <button onClick={() => signInWithGoogle()} className='btn btn-accent btn-outline'>Continue with Google</button>
+                    <button onClick={() => signInWithGoogle()} className='btn btn-primary btn-outline w-full'>Continue with Google</button>
                 </div>
+
             </div>
-        </div>
+
+        </section>
     );
 };
 
-export default SignUp;
+export default Login;
