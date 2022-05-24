@@ -27,7 +27,7 @@ const SignUp = () => {
     if (error || gError || updatError) {
 
        
-        if (error.message.includes('email-already')) {
+        if (error?.message.includes('email-already')) {
 
             signInError = <p className='my-4 text-red-500'>Email already exist</p>
         }

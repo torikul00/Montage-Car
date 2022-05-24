@@ -42,12 +42,12 @@ const Navbar = () => {
                         <li>
                             <NavLink to='/blogs'>Blogs</NavLink>
                         </li>
-                        <li>
+                        {user && <li>
                             <NavLink to='/dashboard'>Dashboard</NavLink>
-                        </li>
-                        {user ?   <li><buttton  onClick={handleLogout}>Logout</buttton></li>
+                        </li>}
+                        {user ? <li><buttton onClick={handleLogout}>Logout</buttton></li>
                             :
-                          
+
                             <li><NavLink to='/login'>Login</NavLink></li>
                         }
                     </ul>

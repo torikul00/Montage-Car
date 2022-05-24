@@ -16,6 +16,7 @@ import RequireAuth from './components/Shared/RequireAuth'
 import AddReview from './components/Pages/Dashboard/AddReview/AddReview';
 import MyOrders from './components/Pages/Dashboard/MyOrders/MyOrders';
 import Payment from './components/Pages/Dashboard/Payment';
+import AllReviews from './components/Pages/Home/UserReviews/AllReviews';
 
 function App() {
   return (
@@ -28,11 +29,8 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/signUp' element={<SignUp />} />
         <Route path='/dashboard' element={<Dashboard />} />
-        <Route path='/buy-part/:id' element={
-        <RequireAuth>
-              <BuyParts />
-        </RequireAuth>
-        } />
+        <Route path='/allReviews' element={<RequireAuth><AllReviews /></RequireAuth> } />
+        <Route path='/buy-part/:id' element={<RequireAuth><BuyParts /> </RequireAuth>} />
 
         <Route path='/dashboard' element={
           <Dashboard />} >
