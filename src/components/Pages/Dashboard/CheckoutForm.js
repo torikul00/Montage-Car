@@ -8,27 +8,10 @@ const CheckoutForm = ({ product }) => {
     const [clientSecret, setClientSecret] = useState('')
     const [paySuccess, setPaysuccess] = useState('')
     const {productPrice, productName, email, userName} = product
+    const [transactionID,settransactionID] = useState('')
 
 
-    useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
-            method: 'POST',
-            headers: {
-                
-                'content-type:': 'application/json',
-            },
-
-            body: JSON.stringify({ productPrice })
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data?.clientSecret) {
-                    setClientSecret(data.clientSecret)
-                }
-            })
-
-
-    }, [productPrice])
+   
     
     useEffect(() => {
         fetch('http://localhost:5000/create-payment-intent', {
@@ -41,7 +24,8 @@ const CheckoutForm = ({ product }) => {
         })
             .then(res => res.json())
             .then(data => {
-                if (data?.clientSecret) {
+                
+                if (data.clientSecret) {
                     setClientSecret(data.clientSecret);
                 }
             });
@@ -51,7 +35,7 @@ const CheckoutForm = ({ product }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log('click')
+      
         if (!stripe || !elements) {
             return;
         }
@@ -73,15 +57,16 @@ const CheckoutForm = ({ product }) => {
             setPaymentError('')
         }
 
-        const { paymentIntent, error } = await stripe.confirmCardPayment(
+        
+        const { paymentIntent, error: error } = await stripe.confirmCardPayment(
             clientSecret,
             {
                 payment_method: {
                     card: card,
                     billing_details: {
                         name:userName,
-                        product: productName,
                         email: email
+                        
                     },
                 },
             },
@@ -94,6 +79,7 @@ const CheckoutForm = ({ product }) => {
         else {
             setPaymentError('')
             console.log(paymentIntent)
+            settransactionID(paymentIntent.id)
             setPaysuccess('Your payment is completed')
         }
     }
@@ -120,8 +106,9 @@ const CheckoutForm = ({ product }) => {
                     }}
                 />
                 {paymentError && <small className='text-red-400 my-4'>{paymentError}</small>}
-                {paySuccess && <small className='text-green-400 my-4'>{paySuccess}</small>}
-                <button className='btn btn-secondary text-base-100 block mx-auto my-4' type="submit" disabled={!stripe || clientSecret}>
+                {paySuccess && <p className='text-green-400 my-4'>{paySuccess}</p>}
+               {transactionID && <p className='text-green-400 my-4'> Transaction Id : {transactionID}</p>}
+                <button className='btn btn-secondary text-base-100 block mx-auto my-4' type="submit" disabled={!stripe}>
                     Pay
                 </button>
             </form>

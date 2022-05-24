@@ -5,7 +5,7 @@ import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import Loading from '../../Shared/Loading/Loading';
 import CheckoutForm from '../Dashboard/CheckoutForm';
-const stripePromise = loadStripe('pk_test_51L2phKSFM9fnj68rq0yPZlIwHZFhpjkGm9EEHav50Uhk9ByRcTMRTnQhPBP3VD2k1pjPr5A37pLg1kpiyALeMDRY003bI2LvCI')
+const stripePromise = loadStripe('pk_test_51L2wVpFudOlYCIZ3nDd23qIYPQ1fJrjMqdhixxIMcmMtg5xnBqaK5wAlNu1kvN3jGX9jA35czl0ZvFCPmEA4fYqw00LIMI2l1j')
 
 const Payment = () => {
 
