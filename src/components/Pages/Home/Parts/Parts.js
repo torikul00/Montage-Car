@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PartsCard from './PartsCard';
 import { FaTools } from 'react-icons/fa';
 import useParts from '../../../hooks/useParts';
-import { useQuery } from 'react-query';
+import Loading from '../../../Shared/Loading/Loading';
 
 const Parts = () => {
 
-    const { parts } = useParts()
+    const { parts,isLoading } = useParts()
 
 
 
-
+    if (isLoading) {
+        return <Loading />
+    }
     return (
         <>
             <div className="flex justify-center w-100 mt-16 text-primary">

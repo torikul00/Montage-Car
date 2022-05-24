@@ -8,7 +8,6 @@ const Dashboard = () => {
                 {/* <!-- Page content here --> */}
                 <div >
                     <h1 className="text-3xl lg:text-5xl my-4 text-primary font-bold"> Welcome to dashboard</h1>
-
                     <Outlet />
                 </div>
                
@@ -18,8 +17,10 @@ const Dashboard = () => {
                 <label for="my-drawer-2" class="drawer-overlay"></label>
                 <ul class="menu p-4 overflow-y-auto w-80 bg-primary text-base-content">
                     {/* <!-- Sidebar content here --> */}
-                    <li><Link to=''>My Appointment</Link></li>
-                    <li><Link to='/dashboard/addItem'>Review</Link></li>
+                   
+                    
+                    <li><Link to='/dashboard/myOrders'>My orders</Link></li>
+                    <li><Link to='/dashboard/feedback'>Give a feedback</Link></li>
                 </ul>
 
             </div>

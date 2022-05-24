@@ -2,9 +2,15 @@
 import React from "react";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import { useNavigate } from "react-router-dom";
 import './Banner.css'
 
 const Banner = () => {
+
+  const navigate = useNavigate()
+  const handleNavigate = () => {
+    navigate('/signUp')
+  }
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -49,7 +55,7 @@ const Banner = () => {
           <div className="item-content">
             <h1 className="lg:text-5xl text-3xl md:text-5xl ">YOUR CAR SAVE IN OUR HANDS !</h1>
             <p className="py-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ut optio soluta. Deleniti voluptatem ratione error animi ducimus odit minima facilis esse delectus quas earum distinctio, necessitatibus voluptatum dolore ipsa?</p>
-            <button className="btn btn-primary">SIGN UP NOW</button>
+            <button onClick={handleNavigate} className="btn btn-primary">SIGN UP NOW</button>
           </div>
         </div>
 
@@ -58,7 +64,7 @@ const Banner = () => {
         <div className="item-content">
             <h1 className="lg:text-5xl text-3xl md:text-5xl ">YOUR CAR SAVE OUR HAND !</h1>
             <p className="py-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ut optio soluta. Deleniti voluptatem ratione error animi ducimus odit minima facilis esse delectus quas earum distinctio, necessitatibus voluptatum dolore ipsa?</p>
-            <button className="btn btn-primary">SIGN UP NOW</button>
+            <button onClick={handleNavigate} className="btn btn-primary">SIGN UP NOW</button>
           </div>
         </div>
 
@@ -66,7 +72,7 @@ const Banner = () => {
         <div className="item-content">
             <h1 className="lg:text-5xl text-3xl md:text-5xl ">YOUR CAR SAVE OUR HAND !</h1>
             <p className="py-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ut optio soluta. Deleniti voluptatem ratione error animi ducimus odit minima facilis esse delectus quas earum distinctio, necessitatibus voluptatum dolore ipsa?</p>
-            <button className="btn btn-primary">SIGN UP NOW</button>
+            <button onClick={handleNavigate} className="btn btn-primary">SIGN UP NOW</button>
           </div>
         </div>
 

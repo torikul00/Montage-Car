@@ -12,6 +12,9 @@ import BuyParts from './components/Pages/BuyParts/BuyParts';
 import Dashboard from './components/Pages/Dashboard/Dashboard';
 import AddItem from './components/Pages/Dashboard/AddItem';
 import Users from './components/Pages/Dashboard/Users';
+import RequireAuth from './components/Shared/RequireAuth'
+import AddReview from './components/Pages/Dashboard/AddReview/AddReview';
+import MyOrders from './components/Pages/Dashboard/MyOrders/MyOrders';
 
 function App() {
   return (
@@ -24,14 +27,20 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/signUp' element={<SignUp />} />
         <Route path='/dashboard' element={<Dashboard />} />
-        <Route path='/buy-part/:id' element={<BuyParts />} />
+        <Route path='/buy-part/:id' element={
+        <RequireAuth>
+              <BuyParts />
+        </RequireAuth>
+        } />
 
 
         <Route path='/dashboard' element={
           <Dashboard />} >
 
-          <Route index element={<Users />} />
+          <Route index path='myOrders' element={<MyOrders />} />
+          {/* <Route index element={<Users />} /> */}
           <Route path='addItem' element={<AddItem />} />
+          <Route path='feedback' element={<AddReview />} />
         </Route>
       </Routes>
 

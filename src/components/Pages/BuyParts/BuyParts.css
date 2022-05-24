@@ -1,0 +1,31 @@
+.single-product-container{
+    width: 100%;
+    height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0px;
+}
+.single-product-card{
+    width: 70%;
+    height: 100%;
+    background-color: #ddd;
+    padding: 30px;
+    display: flex;
+    
+}
+.product-card{
+    width: 40%;
+    height: 100%;
+}
+.product-card img {
+    width: 100%;
+    margin-bottom: 15px;
+}
+.buy-product {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+   
+}
