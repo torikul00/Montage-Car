@@ -1,5 +1,6 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
+import Loading from '../../Shared/Loading/Loading';
 
 const CheckoutForm = ({ product }) => {
     const stripe = useStripe()
@@ -74,19 +75,19 @@ const CheckoutForm = ({ product }) => {
 
         if (error) {
             setPaymentError(error?.message)
-            isLoading(true)
+            setisLoading(true)
             setPaysuccess('')
         }
         else {
             setPaymentError('')
-            console.log(paymentIntent)
+
             settransactionID(paymentIntent.id)
             setPaysuccess('Your payment is completed')
 
 
             //  set paymnet information to backend
             const paymentData = {
-                transactionID: paymentIntent.id,
+                transactionId: paymentIntent.id,
                 productId: _id,
                 productName: productName,
                 userEmail: email
@@ -100,43 +101,49 @@ const CheckoutForm = ({ product }) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
-                    isLoading(false)
+
+                    setisLoading(false)
                 })
 
         }
     }
 
+    if (isLoading) {
+        return (
+           <Loading />
+       )
+    }
+    if (!isLoading) {
 
-
-    return (
-        <>
-            <form onSubmit={handleSubmit}>
-                <CardElement
-                    options={{
-                        style: {
-                            base: {
-                                fontSize: '16px',
-                                color: '#424770',
-                                '::placeholder': {
-                                    color: '#aab7c4',
+        return (
+            <>
+                <form onSubmit={handleSubmit}>
+                    <CardElement
+                        options={{
+                            style: {
+                                base: {
+                                    fontSize: '16px',
+                                    color: '#424770',
+                                    '::placeholder': {
+                                        color: '#aab7c4',
+                                    },
+                                },
+                                invalid: {
+                                    color: '#9e2146',
                                 },
                             },
-                            invalid: {
-                                color: '#9e2146',
-                            },
-                        },
-                    }}
-                />
-                {paymentError && <small className='text-red-400 my-4'>{paymentError}</small>}
-                {paySuccess && <p className='text-green-400 my-4'>{paySuccess}</p>}
-                {transactionID && <p className='text-green-400 my-4'> Transaction Id : {transactionID}</p>}
-                <button className='btn btn-secondary text-base-100 block mx-auto my-4' type="submit" disabled={!stripe}>
-                    Pay
-                </button>
-            </form>
-        </>
-    );
+                        }}
+                    />
+                    {paymentError && <small className='text-red-400 my-4'>{paymentError}</small>}
+                    {paySuccess && <p className='text-green-400 my-4'>{paySuccess}</p>}
+                    {transactionID && <p className='text-green-400 my-4'> Transaction Id : {transactionID}</p>}
+                    <button className='btn btn-secondary text-base-100 block mx-auto my-4' type="submit" disabled={!stripe}>
+                        Pay
+                    </button>
+                </form>
+            </>
+        );
+    }
 };
 
 export default CheckoutForm;

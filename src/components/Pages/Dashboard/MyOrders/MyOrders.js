@@ -5,22 +5,26 @@ import OrderCard from './OrderCard';
 
 const MyOrders = () => {
 
-  const { isLoading, error, data: orders } = useQuery('parts', () =>
+  const { isLoading, data: orders } = useQuery('parts', () =>
     fetch('http://localhost:5000/order').then(res =>
       res.json()
     )
   )
   if (isLoading) {
+
     return <Loading />
   }
 
+  if (orders.length == 0) {
+    return <p className='text-3xl mt-12'> No Orders Yet</p>
+  }
+
   return (
-    <div>
+    <div className='grid lg:grid-cols-3 md:grid-cols-3 grid-cols-1 gap-5 p-8'>
       {
         orders?.map(order => <OrderCard order={order} key={order._id} />)
       }
-     
-      
+
     </div>
   );
 };
