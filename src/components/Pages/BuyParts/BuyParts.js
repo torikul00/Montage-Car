@@ -31,7 +31,9 @@ const BuyParts = () => {
         const phoneNumber = e.target.phoneNumber.value
         const address = e.target.address.value
         const quantity = e.target.quantity.value
-        const orderData = { email, userName, productName, phoneNumber, address, quantity }
+        const productPrice = price
+        const productImage = image
+        const orderData = { email, userName, productName, phoneNumber, address, quantity,productPrice ,productImage}
 
 
         if (quantity < 0) {
