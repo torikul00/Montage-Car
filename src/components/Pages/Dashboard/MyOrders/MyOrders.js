@@ -10,6 +10,7 @@ import OrderCard from './OrderCard';
 const MyOrders = () => {
   const [user] = useAuthState(auth)
   const navigate = useNavigate()
+  
   const userEmail = user?.email
   const { isLoading, data: orders } = useQuery('orders', () =>
     fetch(`http://localhost:5000/order/${userEmail}`, {

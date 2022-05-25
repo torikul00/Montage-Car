@@ -13,14 +13,11 @@ const RequireAdmin = ({ children }) => {
     if (loading || adminLoading) {
         return <Loading />
     }
-    console.log(admin)
-
 
     if (!user || !admin ) {
         signOut(auth)
         return <Navigate to="/login" state={{ from: location }} replace />;
     }
-    console.log('return')
     return children;
 }
 export default RequireAdmin;

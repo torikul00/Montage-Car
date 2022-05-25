@@ -1,7 +1,8 @@
 import React from 'react';
+import { useQuery } from 'react-query';
 import { toast } from 'react-toastify';
 
-const UserCard = ({ user, refetch }) => {
+const UserCard = ({ user, refetch, setUsereModalInfo }) => {
     const { email, role } = user
 
     const handleAdmin = () => {
@@ -19,7 +20,7 @@ const UserCard = ({ user, refetch }) => {
             })
             .then(data => {
                 if (data.modifiedCount) {
-                    
+
                     refetch()
                     toast.success(`${email} make admin successful`)
                 }
@@ -36,12 +37,10 @@ const UserCard = ({ user, refetch }) => {
 
                 <div class="card-actions justify-end">
                     {role === 'admin' ? <p className='font-bold'>Already Admin</p>
-                        : <button onClick={handleAdmin} class="btn btn-primary">Make Admin</button>
+                        : <button onClick={handleAdmin} class="btn btn-sm btn-secondary text-base-100">Make Admin</button>
                     }
-
-
-
-                    <button class="btn btn-primary">Delete User</button>
+                  
+                    <label onClick={() => setUsereModalInfo(user)} for="delete-modal" class="btn bg-red-600 btn-sm text-base-100">Delete</label>
                 </div>
             </div>
         </div>

@@ -24,7 +24,7 @@ const OrderCard = ({ order }) => {
                     <>
                         <button onClick={() => navigate(`/dashboard/payment/${_id}`)} className="btn btn-secondary text-base-100 btn-small">Pay Now</button>
 
-                        <label for="my-modal" className="btn btn-small bg-red-500 text-base-100 mx-4">Cancel</label>
+                        <label  onClick={handleDelete}  for="my-modal" className="btn btn-small bg-red-500 text-base-100 mx-4">Cancel</label>
 
                     </>
                 }
@@ -36,7 +36,7 @@ const OrderCard = ({ order }) => {
                 <div class="modal-box">
                     <h3 class="font-bold text-lg">Are you sure to Cancel this order </h3>
 
-                    <div onClick={handleDelete} class="modal-action">
+                    <div class="modal-action">
                         <label for="my-modal" class="btn btn-small bg-red-500 text-base-100">Confirm</label>
                     </div>
                 </div>
