@@ -21,7 +21,6 @@ const useToken = (user) => {
             .then(res => res.json())
                 .then(data => {
                     localStorage.setItem('token', data.token)
-                
                     setToken(data.token)
             })
         }

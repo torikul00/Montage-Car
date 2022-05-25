@@ -19,6 +19,7 @@ import Payment from './components/Pages/Dashboard/Payment';
 import AllReviews from './components/Pages/Home/UserReviews/AllReviews';
 import NotFound from './components/Pages/NotFound/NotFound';
 import MyProfile from './components/Pages/Dashboard/MyProfile/MyProfile';
+import RequireAdmin from './components/Shared/RequireAdmin';
 
 function App() {
   return (
@@ -30,16 +31,15 @@ function App() {
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signUp' element={<SignUp />} />
-        <Route path='/allReviews' element={<RequireAuth><AllReviews /></RequireAuth> } />
+        <Route path='/allReviews' element={<RequireAuth><AllReviews /></RequireAuth>} />
         <Route path='/buy-part/:id' element={<RequireAuth><BuyParts /> </RequireAuth>} />
 
         <Route path='/dashboard' element={
-        <RequireAuth><Dashboard /></RequireAuth>  } >
-
+          <RequireAuth><Dashboard /></RequireAuth>} >
           <Route path='myOrders' element={<MyOrders />} />
           <Route path='/dashboard' element={<MyProfile />} />
           <Route path='payment/:id' element={<Payment />} />
-         <Route path='users' element={<Users />} />
+          <Route path='users' element={<RequireAdmin><Users /></RequireAdmin>} />
           <Route path='addItem' element={<AddItem />} />
           <Route path='feedback' element={<AddReview />} />
         </Route>
