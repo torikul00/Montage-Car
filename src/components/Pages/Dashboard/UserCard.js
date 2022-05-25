@@ -11,11 +11,18 @@ const UserCard = ({ user, refetch }) => {
                 'authorization': `Bearer ${localStorage.getItem('token')}`
             }
         })
-            .then(res => res.json())
+            .then(res => {
+                if (res.status === 403) {
+                    toast.error('You have no permission to make an admin')
+                }
+                return res.json()
+            })
             .then(data => {
-
-                refetch()
-                toast.success(`${email} make admin successful`)
+                if (data.modifiedCount) {
+                    
+                    refetch()
+                    toast.success(`${email} make admin successful`)
+                }
             })
     }
 
