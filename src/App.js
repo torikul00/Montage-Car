@@ -17,6 +17,7 @@ import AddReview from './components/Pages/Dashboard/AddReview/AddReview';
 import MyOrders from './components/Pages/Dashboard/MyOrders/MyOrders';
 import Payment from './components/Pages/Dashboard/Payment';
 import AllReviews from './components/Pages/Home/UserReviews/AllReviews';
+import NotFound from './components/Pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           <Route path='addItem' element={<AddItem />} /> */}
           <Route path='feedback' element={<AddReview />} />
         </Route>
+        <Route path='*' element={<NotFound />} />
       </Routes>
 
     </section>

@@ -75,10 +75,10 @@ const CheckoutForm = ({ product }) => {
 
         if (error) {
             setPaymentError(error?.message)
-            setisLoading(true)
             setPaysuccess('')
         }
         else {
+
             setPaymentError('')
 
             settransactionID(paymentIntent.id)
@@ -108,42 +108,38 @@ const CheckoutForm = ({ product }) => {
         }
     }
 
-    if (isLoading) {
-        return (
-           <Loading />
-       )
-    }
-    if (!isLoading) {
 
-        return (
-            <>
-                <form onSubmit={handleSubmit}>
-                    <CardElement
-                        options={{
-                            style: {
-                                base: {
-                                    fontSize: '16px',
-                                    color: '#424770',
-                                    '::placeholder': {
-                                        color: '#aab7c4',
-                                    },
-                                },
-                                invalid: {
-                                    color: '#9e2146',
+
+
+    return (
+        <>
+            <form onSubmit={handleSubmit}>
+                <CardElement
+                    options={{
+                        style: {
+                            base: {
+                                fontSize: '20px',
+                                color: '#424770',
+                                '::placeholder': {
+                                    color: '#aab7c4',
                                 },
                             },
-                        }}
-                    />
-                    {paymentError && <small className='text-red-400 my-4'>{paymentError}</small>}
-                    {paySuccess && <p className='text-green-400 my-4'>{paySuccess}</p>}
-                    {transactionID && <p className='text-green-400 my-4'> Transaction Id : {transactionID}</p>}
-                    <button className='btn btn-secondary text-base-100 block mx-auto my-4' type="submit" disabled={!stripe}>
-                        Pay
-                    </button>
-                </form>
-            </>
-        );
-    }
-};
+                            invalid: {
+                                color: '#9e2146',
+                            },
+                        },
+                    }}
+                />
+                {paymentError && <small className='text-red-400 my-4'>{paymentError}</small>}
+                {paySuccess && <p className='text-green-400 my-4'>{paySuccess}</p>}
+                {transactionID && <p className='text-green-400 my-4'> Transaction Id : {transactionID}</p>}
+                <button className='btn btn-secondary text-base-100 block mx-auto my-4' type="submit" disabled={!stripe}>
+                    Pay
+                </button>
+            </form>
+        </>
+    );
+}
+
 
 export default CheckoutForm;

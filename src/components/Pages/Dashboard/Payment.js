@@ -27,9 +27,11 @@ const Payment = () => {
                 <h1> Product  : {productName}</h1>
                 <h1>Price : {productPrice}</h1>
             </div>
+            <div className='border my-4 w-96 p-4'>
             <Elements stripe={stripePromise}>
                 <CheckoutForm product={data} />
             </Elements>
+            </div>
         </div>
     );
 };
