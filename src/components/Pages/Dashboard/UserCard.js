@@ -36,7 +36,7 @@ const UserCard = ({ user, refetch, setUsereModalInfo }) => {
                     {role === 'admin' ? <p className='font-bold'>Already Admin</p>
                         : <button onClick={handleAdmin} class="btn btn-sm btn-secondary text-base-100">Make Admin</button>
                     }
-                    <label onClick={() => setUsereModalInfo(user)} for="delete-modal" class="btn bg-red-600 btn-sm text-base-100">Delete</label>
+                    <label onClick={() => setUsereModalInfo(user)} for="delete-modal" class="btn bg-red-600 btn-sm text-base-100"> Delete </label>
                 </div>
             </div>
         </div>

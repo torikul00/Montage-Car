@@ -13,7 +13,12 @@ const BuyParts = () => {
     const [user] = useAuthState(auth)
     const { id } = useParams()
     const { data, isLoading } = useQuery('buyPart', () =>
-        fetch(`http://localhost:5000/parts/${id}`)
+        fetch(`http://localhost:5000/parts/${id}`, {
+            method: 'GET',
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        })
             .then(res => res.json())
     )
     if (isLoading) {

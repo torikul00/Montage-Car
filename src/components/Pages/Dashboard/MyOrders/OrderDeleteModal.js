@@ -15,7 +15,7 @@ const OrderDeleteModal = ({ order,setOrderModalInfo ,refetch}) => {
             .then(data => {
                 console.log(data)
                 if (data.deletedCount) {
-                    toast.success(`Deleted : ${order.productName} `)
+                    toast.success(`Canceled your order : ${order.productName} `)
                     setOrderModalInfo(null)
                     refetch()
 
@@ -33,7 +33,7 @@ const OrderDeleteModal = ({ order,setOrderModalInfo ,refetch}) => {
 
                     <div class="modal-action">
                         <label for="my-modal-6" class="btn bg-secondary text-base-100">Cancel</label>
-                        <label onClick={handleDelte} class="btn">Confirm</label>
+                        <label onClick={handleDelte} class="btn bg-red-600 text-base-100">Confirm</label>
                     </div>
                 </div>
             </div>

@@ -13,7 +13,12 @@ const Payment = () => {
 
     const url = `http://localhost:5000/singleItem/${id}`
 
-    const { data, isLoading } = useQuery(['product', id], () => fetch(url).then(res => res.json()))
+    const { data, isLoading } = useQuery(['product', id], () => fetch(url,{
+        method: 'GET',
+        headers: {
+            'authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+    }).then(res => res.json()))
 
     if (isLoading) {
         return <Loading />
