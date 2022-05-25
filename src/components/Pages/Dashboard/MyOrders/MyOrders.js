@@ -1,12 +1,15 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
+import auth from '../../../Shared/firebase.init';
 import Loading from '../../../Shared/Loading/Loading';
 import OrderCard from './OrderCard';
 
 const MyOrders = () => {
-
+  const [user] = useAuthState(auth)
+  const userEmail = user?.email
   const { isLoading, data: orders } = useQuery('parts', () =>
-    fetch('http://localhost:5000/order').then(res =>
+    fetch(`http://localhost:5000/order/${userEmail}`).then(res =>
       res.json()
     )
   )

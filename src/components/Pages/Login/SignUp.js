@@ -6,9 +6,11 @@ import Loading from '../../Shared/Loading/Loading';
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import loginPic from '../../../images/login.gif'
 import { toast } from 'react-toastify';
+import useToken from '../../hooks/useToken';
 const SignUp = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
+  
     const [
         createUserWithEmailAndPassword,
         user,
@@ -18,6 +20,8 @@ const SignUp = () => {
     const [updateProfile, updating, updatError] = useUpdateProfile(auth);
     const navigate = useNavigate()
     let location = useLocation();
+    const [token]  = useToken(user || gUser)
+
     let from = location.state?.from?.pathname || "/"
 
     let signInError
@@ -36,7 +40,7 @@ const SignUp = () => {
        }
 
     }
-    if (user || gUser) {
+    if (token) {
         toast.success('Sign up successful',{toastId:'signup'})
         navigate(from, { replace: true });
     }

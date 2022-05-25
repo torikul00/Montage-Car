@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Loading from '../../Shared/Loading/Loading';
 import { toast } from 'react-toastify';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const [signInWithGoogle, gUser, gError] = useSignInWithGoogle(auth);
@@ -20,6 +21,7 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
     const navigate = useNavigate()
     let location = useLocation();
+    const [token]  = useToken(gUser || user)
     let from = location.state?.from?.pathname || "/"
     let signInError
     if (loading) {
@@ -31,7 +33,7 @@ const Login = () => {
         signInError = <p className='my-4 text-red-500'>Please check Email and Password</p>
 
     }
-    if (user || gUser) {
+    if (token) {
         toast.success('Login successful', { toastId: 'login' })
         navigate(from, { replace: true });
     }

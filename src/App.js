@@ -29,12 +29,11 @@ function App() {
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signUp' element={<SignUp />} />
-        <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/allReviews' element={<RequireAuth><AllReviews /></RequireAuth> } />
         <Route path='/buy-part/:id' element={<RequireAuth><BuyParts /> </RequireAuth>} />
 
         <Route path='/dashboard' element={
-          <Dashboard />} >
+        <RequireAuth><Dashboard /></RequireAuth>  } >
 
           <Route path='/dashboard' element={<MyOrders />} />
           <Route path='payment/:id' element={<Payment />} />

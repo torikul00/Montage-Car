@@ -2,8 +2,10 @@ import React from 'react';
 
 const Blogs = () => {
     return (
-        <div>
-            <h1>this is blog page</h1>
+        <div className='mx-auto'>
+            <div className='w-1/2'>
+
+            </div>
         </div>
     );
 };
