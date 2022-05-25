@@ -1,18 +1,19 @@
-import { signOut } from 'firebase/auth';
-import React from 'react';
+
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
-import { useNavigate } from 'react-router-dom';
 import auth from '../../../Shared/firebase.init';
 import Loading from '../../../Shared/Loading/Loading';
 import OrderCard from './OrderCard';
+import OrderDeleteModal from './OrderDeleteModal';
 
 const MyOrders = () => {
   const [user] = useAuthState(auth)
-  const navigate = useNavigate()
-  
+
+  const [orderModalInfo,setOrderModalInfo] = useState(null)
+
   const userEmail = user?.email
-  const { isLoading, data: orders } = useQuery('orders', () =>
+  const { isLoading, data: orders,refetch } = useQuery('orders', () =>
     fetch(`http://localhost:5000/order/${userEmail}`, {
       method: 'GET',
       headers: {
@@ -30,12 +31,23 @@ const MyOrders = () => {
   }
 
   return (
+    <>
     <div className='grid lg:grid-cols-3 md:grid-cols-3 grid-cols-1 gap-5 p-8'>
       {
-        orders?.map(order => <OrderCard order={order} key={order._id} />)
+        orders?.map(order => <OrderCard setOrderModalInfo={setOrderModalInfo} order={order} key={order._id} />)
       }
 
-    </div>
+      </div>
+      {
+        orderModalInfo && <OrderDeleteModal
+          order={orderModalInfo}
+          refetch={refetch}
+          setOrderModalInfo={setOrderModalInfo}
+        />
+          }
+
+      </>
+    
   );
 };
 

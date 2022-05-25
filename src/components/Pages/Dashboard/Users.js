@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
-import DeleteConfirmModal from '../../Shared/DeleteConfirmModal';
+import DeleteUsermModal from '../../Shared/DeleteUserModal'
 import Loading from '../../Shared/Loading/Loading';
 import UserCard from './UserCard';
 
@@ -31,7 +31,7 @@ const Users = () => {
                 }
 
             </div>
-            {usereModalInfo && <DeleteConfirmModal setUsereModalInfo={setUsereModalInfo}   refetch={refetch} user={usereModalInfo}  />}
+            {usereModalInfo && <DeleteUsermModal setUsereModalInfo={setUsereModalInfo}   refetch={refetch} user={usereModalInfo}  />}
         </>
     );
 };
