@@ -1,24 +1,30 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../../Shared/firebase.init';
 import Loading from '../../../Shared/Loading/Loading';
 import OrderCard from './OrderCard';
 
 const MyOrders = () => {
   const [user] = useAuthState(auth)
+  const navigate = useNavigate()
   const userEmail = user?.email
-  const { isLoading, data: orders } = useQuery('parts', () =>
-    fetch(`http://localhost:5000/order/${userEmail}`).then(res =>
-      res.json()
-    )
+  const { isLoading, data: orders } = useQuery('orders', () =>
+    fetch(`http://localhost:5000/order/${userEmail}`, {
+      method: 'GET',
+      headers: {
+        'authorization': `Bearer ${localStorage.getItem('token')}`
+      }
+    }).then(res => res.json() )
   )
   if (isLoading) {
 
     return <Loading />
   }
 
-  if (orders.length == 0) {
+  if (orders?.length === 0) {
     return <p className='text-3xl mt-12'> No Orders Yet</p>
   }
 

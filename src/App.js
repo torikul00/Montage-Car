@@ -18,6 +18,7 @@ import MyOrders from './components/Pages/Dashboard/MyOrders/MyOrders';
 import Payment from './components/Pages/Dashboard/Payment';
 import AllReviews from './components/Pages/Home/UserReviews/AllReviews';
 import NotFound from './components/Pages/NotFound/NotFound';
+import MyProfile from './components/Pages/Dashboard/MyProfile/MyProfile';
 
 function App() {
   return (
@@ -35,10 +36,11 @@ function App() {
         <Route path='/dashboard' element={
         <RequireAuth><Dashboard /></RequireAuth>  } >
 
-          <Route path='/dashboard' element={<MyOrders />} />
+          <Route path='myOrders' element={<MyOrders />} />
+          <Route path='/dashboard' element={<MyProfile />} />
           <Route path='payment/:id' element={<Payment />} />
-          {/* <Route index element={<Users />} />
-          <Route path='addItem' element={<AddItem />} /> */}
+         <Route path='users' element={<Users />} />
+          <Route path='addItem' element={<AddItem />} />
           <Route path='feedback' element={<AddReview />} />
         </Route>
         <Route path='*' element={<NotFound />} />
