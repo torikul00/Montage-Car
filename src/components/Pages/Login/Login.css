@@ -22,4 +22,7 @@
     .login-container {
         flex-direction: column;
     }
+    .form-container{
+        width: 300px;
+    }
   }
