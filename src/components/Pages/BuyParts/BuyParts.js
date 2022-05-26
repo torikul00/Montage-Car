@@ -11,7 +11,7 @@ const BuyParts = () => {
     const [user] = useAuthState(auth)
     const { id } = useParams()
     const { data, isLoading } = useQuery('buyPart', () =>
-        fetch(`http://localhost:5000/parts/${id}`, {
+        fetch(`https://stormy-spire-75562.herokuapp.com/parts/${id}`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('token')}`
@@ -53,7 +53,7 @@ const BuyParts = () => {
         }
         else {
 
-            fetch('http://localhost:5000/part', {
+            fetch('https://stormy-spire-75562.herokuapp.com/part', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -86,12 +86,12 @@ const BuyParts = () => {
                 <div className='buy-product ml-8'>
                     <form onSubmit={handleOrder} className=' mx-auto'  >
                         <h2 className="text-3xl font-bold my-4">Place your order now</h2>
-                        <input name='userName' type="text" disabled value={user.displayName} class="input input-bordered input-md w-full max-w-xs my-2" />
-                        <input name='email' type="text" disabled value={user.email} class="input input-bordered input-md w-full max-w-xs my-2" />
-                        <input name='productName' type="text" disabled value={name} class="input input-bordered input-md w-full max-w-xs my-2" />
-                        <input name='address' required placeholder='Address' type="text" class="input input-bordered input-md w-full max-w-xs" />
-                        <input name='phoneNumber' required type="number" placeholder="Phone Number" class="input input-bordered input-md w-full max-w-xs my-2" />
-                        <input name='quantity'  required type="number" placeholder="Quantity" class="input input-bordered input-md w-full max-w-xs my-2" />
+                        <input name='userName' type="text" disabled value={user.displayName} className="input input-bordered input-md w-full max-w-xs my-2" />
+                        <input name='email' type="text" disabled value={user.email} className="input input-bordered input-md w-full max-w-xs my-2" />
+                        <input name='productName' type="text" disabled value={name} className="input input-bordered input-md w-full max-w-xs my-2" />
+                        <input name='address' required placeholder='Address' type="text" className="input input-bordered input-md w-full max-w-xs" />
+                        <input name='phoneNumber' required type="number" placeholder="Phone Number" className="input input-bordered input-md w-full max-w-xs my-2" />
+                        <input name='quantity'  required type="number" placeholder="Quantity" className="input input-bordered input-md w-full max-w-xs my-2" />
                         <button type='submit' className='btn btn-primary block mx-auto'>Place Now</button>
                     </form>
                 </div>

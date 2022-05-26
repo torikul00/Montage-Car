@@ -12,3 +12,22 @@
     border-radius: 5px;
     color: black;
 }
+
+
+
+@media only screen and  (max-width:600px) {
+    .nl-input{
+        width: 300px;
+        margin: 15px 0px;
+        
+    }
+    .news-container{
+        height: auto;
+    }
+    .sum-button{
+
+        display: block;
+        margin: auto;
+
+    }
+ }

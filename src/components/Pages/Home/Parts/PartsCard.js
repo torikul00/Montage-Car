@@ -6,17 +6,17 @@ const PartsCard = ({ part }) => {
 
     const navigate = useNavigate()
     return (
-        <div class="card  bg-base-100 shadow-xl">
+        <div className="card  bg-base-100 shadow-xl">
             <figure><img src={image} alt="Shoes" /></figure>
-            <div class="card-body">
-                <h2 class="card-title">{name}</h2>
-                <h2 class="card-title"> $ {price}</h2>
+            <div className="card-body">
+                <h2 className="card-title">{name}</h2>
+                <h2 className="card-title"> $ {price}</h2>
                 <p>{description}</p>
                 <hr />
                 <p>Min - Quantity : {min_quantity}</p>
                 <p>Available - Quantity : {avai_quantity}</p>
-                <div class="card-actions justify-end">
-                    <button onClick={()=>navigate(`/buy-part/${_id}`)} class="btn btn-primary">Order Now</button>
+                <div className="card-actions justify-end">
+                    <button onClick={()=>navigate(`/buy-part/${_id}`)} className="btn btn-primary">Order Now</button>
                 </div>
             </div>
         </div>

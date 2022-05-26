@@ -1,20 +1,22 @@
 import React from 'react';
-
+import { AiFillCheckCircle } from 'react-icons/ai';
 const ManageOrderCard = ({ order }) => {
     const { userName, productName, productImage, paid } = order
     return (
-        <div class="card  bg-base-100 shadow-xl">
-            <figure class="px-10 pt-10">
-                <img src={productImage} alt="Shoes" class="rounded-xl" />
-
+        <div className="card  bg-base-100 shadow-xl">
+            <figure className="px-10 pt-10">
+                <img src={productImage} alt="Shoes" className="rounded-xl" />
             </figure>
-            <div class="card-body items-center text-center">
+            <div className="card-body items-center text-center">
 
-                <p>{productName}</p>
-                <h2 class=""> Name : {userName}</h2>
-
-                <div class="card-actions">
-                    <button class="btn btn-primary">Buy Now</button>
+                <p className='font-bold'>{productName}</p>
+                <h2 className="font-bold">User name : {userName}</h2>
+                {paid ? <h2 className=''> <AiFillCheckCircle className='inline text-xl text-green-600 font-bold' /> Paid</h2>
+                    :
+                <p className='font-bold'>Unpaid</p> 
+            }
+                <div className="card-actions">
+                    <button className="btn btn-primary">Shift</button>
                 </div>
             </div>
         </div>

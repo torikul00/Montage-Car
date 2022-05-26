@@ -21,7 +21,7 @@ const OrderCard = ({ order,setOrderModalInfo }) => {
                     <div className="my-4">
                         <button onClick={() => navigate(`/dashboard/payment/${_id}`)} className="btn btn-secondary text-base-100 btn-small my">Pay Now</button>
 
-                        <label onClick={()=>setOrderModalInfo(order)} for="my-modal-6" class="btn bg-red-600 text-base-100 mx-5">Cancel</label>
+                        <label onClick={()=>setOrderModalInfo(order)} for="my-modal-6" className="btn bg-red-600 text-base-100 mx-5">Cancel</label>
 
                     </div>
                 }

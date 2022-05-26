@@ -6,15 +6,15 @@ const Blogs = () => {
     return (
         <>
             <div className='blog-container'>
-                <div className="blog w-1/2 ml-20 mt-10">
-                    <h1 className='text-3xl text-secondary font-bold my-4'> How will you improve the performance of a React Application ?</h1>
+                <div className="blog md:w-1/2 lg:w/2 w-full lg:ml-20 md:ml-20 p-4 mt-10">
+                    <h1 className='md:text-3xl text-xl text-secondary font-bold my-4'> How will you improve the performance of a React Application ?</h1>
                     <BsArrowReturnRight className='text-3xl text-primary font-bold inline mr-4' />
                     <p className='inline'>
                         For good React application performance we should use low resolution image and optimizable css animations. Avoid unnecessary props rendering. All component handle locally if possible.We should pass only the relevant value to Main instead of the style object.Unlike the previous performance technique where refactoring our code gives us a performance boost, here we trade memory space for time. So, we must only memoize a component when necessary.
                     </p>
                 </div>
-                <div className="blog w-1/2 ml-20 mt-10">
-                    <h1 className='text-3xl text-secondary font-bold my-4'>What are the different ways to manage a state in a React application ?</h1>
+                <div className="blog md:w-1/2 lg:w/2 w-full lg:ml-20 md:ml-20 p-4 mt-10">
+                    <h1 className='md:text-3xl text-xl text-secondary font-bold my-4'>What are the different ways to manage a state in a React application ?</h1>
                     <BsArrowReturnRight className='text-3xl text-primary font-bold inline mr-4' />
                     <p className='inline'>
                         There is a many kind of ways to manage state in React application. For example
@@ -32,8 +32,8 @@ const Blogs = () => {
                         URL data hold all data over the url or pathname in our application.
                     </p>
                 </div>
-                <div className="blog w-1/2 ml-20 mt-10">
-                    <h1 className='text-3xl text-secondary font-bold my-4'>  How does prototypical inheritance work ? </h1>
+                <div className="blog md:w-1/2 lg:w/2 w-full lg:ml-20 md:ml-20 p-4 mt-10">
+                    <h1 className='md:text-3xl text-xl text-secondary font-bold my-4'>  How does prototypical inheritance work ? </h1>
                     <BsArrowReturnRight className='text-3xl text-primary font-bold inline mr-4' />
                     <p className='inline'>
                         The prototypical inheritance works, In JavaScript any function can be added to an object in the form of a property. An inherited function acts just as any other property, including property shadowing as shown above . functions are able to have properties. All functions have a special property named prototype. We can add properties to the prototype .We can now use the new operator to create an instance of properties based on this prototype.
@@ -42,8 +42,8 @@ const Blogs = () => {
 
                     </p>
                 </div>
-                <div className="blog w-1/2 ml-20 mt-10">
-                    <h1 className='text-3xl text-secondary font-bold my-4'> What is a unit test? Why should write unit tests ?</h1>
+                <div className="blog md:w-1/2 lg:w/2 w-full lg:ml-20 md:ml-20 p-4 mt-10">
+                    <h1 className='md:text-3xl text-xl text-secondary font-bold my-4'> What is a unit test? Why should write unit tests ?</h1>
                     <BsArrowReturnRight className='text-3xl text-primary font-bold inline mr-4' />
                     <p className='inline'>Unit testing is a way to check our code performance.The purpose is to validate that each unit of the software code performs as expected. Unit testing usually use a developer when applcation develop by user. When developer develop for a application section or a funciton for test. Unit Testing has tow types
                         <ul className='list-decimal ml-8'>
@@ -53,8 +53,8 @@ const Blogs = () => {
                         </ul>
                     </p>
                 </div>
-                <div className="blog w-1/2 ml-20 mt-10 mb-8">
-                    <h1 className='text-3xl text-secondary font-bold my-4'> You have an array of products. Each product has a name, price, description, etc. How will you implement a search to find products by name ?</h1>
+                <div className="blog md:w-1/2 lg:w/2 w-full lg:ml-20 md:ml-20 p-4 mt-10">
+                    <h1 className='md:text-3xl text-xl text-secondary font-bold my-4'> You have an array of products. Each product has a name, price, description, etc. How will you implement a search to find products by name ?</h1>
                     <BsArrowReturnRight className='text-3xl text-primary font-bold inline mr-4' />
                     <p className='inline'>
                         If i have an array of products. I can find prodcut by the product name.

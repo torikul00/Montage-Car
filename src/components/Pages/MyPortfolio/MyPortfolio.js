@@ -5,8 +5,8 @@ import Footer from '../../Shared/Footer';
 const MyPortfolio = () => {
     return (
         <>
-            <div className='md:ml-20 lg:ml-20 m-12 lg:w-1/2 md:w-1/2 w-full'>
-                <img src={portfolio} alt="" />
+            <div className='md:ml-20 lg:ml-20 p-12 lg:w-1/2 md:w-1/2 w-full'>
+                <img className='lg:w-full w-74' src={portfolio} alt="" />
                 <h1 className='text-4xl font-bold text-primary my-4'>TORIKUL ISLAM</h1>
                 <h1 className='font-bold text-xl text-primary my-4'>About me</h1>
 

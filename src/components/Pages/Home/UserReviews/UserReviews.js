@@ -9,7 +9,7 @@ const UserReviews = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch('http://localhost:5000/review', {
+        fetch('https://stormy-spire-75562.herokuapp.com/review', {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('token')}`
@@ -22,8 +22,8 @@ const UserReviews = () => {
     return (
         <section>
         
-            <h1 className="text-5xl text-center font-bold text-secondary">  Our Client Says ! </h1>
-            <div class="divider"></div> 
+            <h1 className="lg:text-5xl text-3xl text-center font-bold text-secondary">  Our Client Says ! </h1>
+            <div className="divider"></div> 
             <div className=" grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-5 p-12">
                 {
                     reviews?.map((review,index) =><UserReviewCard review={review} key={index} />).reverse().slice(0,3)

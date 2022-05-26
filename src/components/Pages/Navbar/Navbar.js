@@ -21,19 +21,23 @@ const Navbar = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul tabindex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            {/* responsive links */}
-                            <li><NavLink to='/'>Home</NavLink></li>
-                            <li>
-                                <NavLink to='/blogs'>Blogs</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to='/dashboard'>Dashboard</NavLink>
-                            </li>
+                        <li><NavLink to='/'>Home</NavLink></li>
+                        <li><NavLink to='/myPortfolio'>Portfolio</NavLink></li>
+                        <li>
+                            <NavLink to='/blogs'>Blogs</NavLink>
+                        </li>
+                        {user && <li>
+                            <NavLink to='/dashboard'>Dashboard</NavLink>
+                        </li>}
+                        {user ? <li><buttton onClick={handleLogout}>Logout</buttton></li>
+                            :
+
                             <li><NavLink to='/login'>Login</NavLink></li>
+                        }
                         </ul>
                     </div>
                     <NavLink to='' className=" w-36">
-                        <img src={logo} alt="" />
+                        <img className='mx-auto block' src={logo} alt="" />
                     </NavLink>
                 </div>
                 <div className="navbar-end hidden lg:flex">

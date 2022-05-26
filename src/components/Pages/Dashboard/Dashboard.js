@@ -13,19 +13,17 @@ const Dashboard = () => {
     const [user] = useAuthState(auth)
     const [admin] = useAdmin(user)
     return (
-        <div class="drawer drawer-mobile">
-            <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-            <div class="drawer-content flex flex-col items-center ">
-
+        <div className="drawer drawer-mobile">
+            <input id="dashboard-menu" type="checkbox" className="drawer-toggle" />
+            <div className="drawer-content flex flex-col items-center ">
+            <label for="dashboard-menu" className="btn my-8 btn-primary drawer-button lg:hidden">Dashboard Menu</label>
                 <div >
                     <Outlet />
                 </div>
-
-
             </div>
-            <div class="drawer-side">
-                <label for="my-drawer-2" class="drawer-overlay"></label>
-                <ul class="menu p-4 overflow-y-auto w-80 bg-secondary text-base-content text-base-100">
+            <div className="drawer-side">
+                <label for="dashboard-menu" className="drawer-overlay"></label>
+                <ul className="menu p-4 overflow-y-auto w-80 bg-secondary text-base-content text-base-100">
 
 
                     <li> <Link className='text-base-100' to='/dashboard'><CgProfile className='text-3xl ' /> My Profile</Link></li>

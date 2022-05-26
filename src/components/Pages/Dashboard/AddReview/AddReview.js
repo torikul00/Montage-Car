@@ -9,7 +9,7 @@ const AddReview = () => {
         const reviewMessage = e.target.reviewMessage.value
         const reviewData = { name, image, reviewMessage, }
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://stormy-spire-75562.herokuapp.com/reviews', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

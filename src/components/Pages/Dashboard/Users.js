@@ -7,7 +7,7 @@ import UserCard from './UserCard';
 
 const Users = () => {
     const [usereModalInfo, setUsereModalInfo] = useState(null)
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/users', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://stormy-spire-75562.herokuapp.com/users', {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('token')}`

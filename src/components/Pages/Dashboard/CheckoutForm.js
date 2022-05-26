@@ -1,21 +1,24 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
-import Loading from '../../Shared/Loading/Loading';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 
 const CheckoutForm = ({ product }) => {
     const stripe = useStripe()
     const elements = useElements()
     const [paymentError, setPaymentError] = useState('')
     const [clientSecret, setClientSecret] = useState('')
-    const [paySuccess, setPaysuccess] = useState('')
-    const [transactionID, settransactionID] = useState('')
-    const [isLoading, setisLoading] = useState(false)
+    
+  
+   
+    const navigate = useNavigate()
 
 
 
     const { productPrice, productName, email, userName, _id } = product
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://stormy-spire-75562.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -75,15 +78,10 @@ const CheckoutForm = ({ product }) => {
 
         if (error) {
             setPaymentError(error?.message)
-            setPaysuccess('')
+           
         }
         else {
-
             setPaymentError('')
-
-            settransactionID(paymentIntent.id)
-            setPaysuccess('Your payment is completed')
-
 
             //  set paymnet information to backend
             const paymentData = {
@@ -92,7 +90,7 @@ const CheckoutForm = ({ product }) => {
                 productName: productName,
                 userEmail: email
             }
-            fetch(`http://localhost:5000/update/${_id}`, {
+            fetch(`https://stormy-spire-75562.herokuapp.com/update/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json'
@@ -101,15 +99,12 @@ const CheckoutForm = ({ product }) => {
             })
                 .then(res => res.json())
                 .then(data => {
-
-                    setisLoading(false)
+                    toast.success('Payment Successful')
+                    navigate('/dashboard/myOrders')
                 })
 
         }
     }
-
-
-
 
     return (
         <>
@@ -131,8 +126,7 @@ const CheckoutForm = ({ product }) => {
                     }}
                 />
                 {paymentError && <small className='text-red-400 my-4'>{paymentError}</small>}
-                {paySuccess && <p className='text-green-400 my-4'>{paySuccess}</p>}
-                {transactionID && <p className='text-green-400 my-4'> Transaction Id : {transactionID}</p>}
+               
                 <button className='btn btn-secondary text-base-100 block mx-auto my-8' type="submit" disabled={!stripe}>
                     Pay Now
                 </button>

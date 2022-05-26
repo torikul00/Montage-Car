@@ -8,7 +8,7 @@ import Loading from '../../../Shared/Loading/Loading';
 
 const MyProfile = () => {
     const [user] = useAuthState(auth)
-    const { data,isLoading,refetch } = useQuery('user', () => fetch(`http://localhost:5000/user/${user.email}`).then(res => res.json()))
+    const { data,isLoading,refetch } = useQuery('user', () => fetch(`https://stormy-spire-75562.herokuapp.com/user/${user.email}`).then(res => res.json()))
 
 
     const handleSubmit = (event) => {
@@ -20,7 +20,7 @@ const MyProfile = () => {
         const phone = event.target.phone.value
         const userUpdateData = { image, address, city, profession, phone }
 
-        fetch(`http://localhost:5000/userUpdate/${user.email}`, {
+        fetch(`https://stormy-spire-75562.herokuapp.com/userUpdate/${user.email}`, {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json'
@@ -45,8 +45,8 @@ const MyProfile = () => {
     return (
         <div className="prifile-container m-12 border shadow-xl p-8">
             <div>
-                <div class="avatar">
-                    <div class="w-24 rounded-full">
+                <div className="avatar">
+                    <div className="w-24 rounded-full">
                         <img src={data.image?data.image :"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB0Q7C35IjUnEFF1XDxd0hb6MHNNmRb3N3Ig&usqp=CAU"} alt='User Profile' />
 
                     </div>
@@ -68,15 +68,15 @@ const MyProfile = () => {
             <div className="update-profile-form">
                 <h1 className="text-3xl text-primary mt-12"> Update Your Profile</h1>
                 <form onSubmit={handleSubmit}>
-                    <input required  name='image' type="text" placeholder="Image URL" class="m-4 input input-bordered input-primary w-full max-w-xs" />
+                    <input required  name='image' type="text" placeholder="Image URL" className="m-4 input input-bordered input-primary w-full max-w-xs" />
 
-                    <input required  name='address' type="text" placeholder="Address" class="m-4 input input-bordered input-primary w-full max-w-xs" />
+                    <input required  name='address' type="text" placeholder="Address" className="m-4 input input-bordered input-primary w-full max-w-xs" />
 
-                    <input required  name='city' type="text" placeholder="City" class="m-4 input input-bordered input-primary w-full max-w-xs" />
+                    <input required  name='city' type="text" placeholder="City" className="m-4 input input-bordered input-primary w-full max-w-xs" />
 
-                    <input required  name='profession' type="text" placeholder="Profession" class="m-4 input input-bordered input-primary w-full max-w-xs" />
+                    <input required  name='profession' type="text" placeholder="Profession" className="m-4 input input-bordered input-primary w-full max-w-xs" />
 
-                    <input  required name='phone' type="text" placeholder="Phone Number" class="m-4 input input-bordered input-primary w-full max-w-xs" />
+                    <input  required name='phone' type="text" placeholder="Phone Number" className="m-4 input input-bordered input-primary w-full max-w-xs" />
                     <button type='submit' className='btn btn-primary block mx-auto'> Update profile</button>
                 </form>
             </div>

@@ -5,7 +5,7 @@ import ManageOrderCard from './ManageOrderCard';
 
 const ManageAllOrders = () => {
 
-    const { data: orders, isLoading, refetch } = useQuery('allOrders', () => fetch('http://localhost:5000/allOrders', {
+    const { data: orders, isLoading, refetch } = useQuery('allOrders', () => fetch('https://stormy-spire-75562.herokuapp.com/allOrders', {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('token')}`

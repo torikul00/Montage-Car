@@ -11,7 +11,7 @@ const Payment = () => {
 
     const { id } = useParams()
 
-    const url = `http://localhost:5000/singleItem/${id}`
+    const url = `https://stormy-spire-75562.herokuapp.com/singleItem/${id}`
 
     const { data, isLoading } = useQuery(['product', id], () => fetch(url, {
         method: 'GET',

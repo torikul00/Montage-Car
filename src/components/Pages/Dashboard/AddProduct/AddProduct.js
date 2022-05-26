@@ -27,7 +27,7 @@ const AddProduct = () => {
       console.log(porductData)
 
 
-        fetch('http://localhost:5000/product', {
+        fetch('https://stormy-spire-75562.herokuapp.com/product', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -46,23 +46,23 @@ const AddProduct = () => {
 
     }
     return (
-        <div>
+        <div className='border shadow-xl m-12 bg-secondary'>
             <div className='buy-product ml-8'>
                 <form onSubmit={handleOrder} className=' mx-auto'  >
-                    <h2 className="text-3xl font-bold my-4">Add a new Product </h2>
-                    <input name='userName' type="text" disabled value={user.displayName} class="input input-bordered input-md w-full max-w-xs my-2" />
-                    <input name='email' type="text" disabled value={user.email} class="input input-bordered input-md w-full max-w-xs my-2" />
-                    <input name='productName' type="text" placeholder='Product Name' class="input input-bordered input-md w-full max-w-xs my-2" required />
-                    <input name='image' required placeholder='Image URL' type="text" class="input input-bordered input-md w-full max-w-xs" />
+                    <h2 className="text-3xl font-bold my-8rr text-base-100 text-center ">Add a new Product </h2>
+                    <input name='userName' type="text" disabled value={user.displayName} className="input input-bordered input-md w-full  my-2" />
+                    <input name='email' type="text" disabled value={user.email} className="input input-bordered input-md w-full my-2" />
+                    <input name='productName' type="text" placeholder='Product Name' className="input input-bordered input-md w-full  my-2" required />
+                    <input name='image' required placeholder='Image URL' type="text" className="input input-bordered input-md w-full " />
 
-                    <textarea name='description' class="textarea textarea-bordered h-24 w-full block  max-w-xs my-4	" placeholder="Description"></textarea>
+                    <textarea name='description' className="textarea textarea-bordered h-24 w-full block   my-4	" placeholder="Description"></textarea>
 
-                    <input name='minQuantity' required type="number" placeholder="Minimum Quantity" class="input input-bordered input-md w-full max-w-xs my-2" />
+                    <input name='minQuantity' required type="number" placeholder="Minimum Quantity" className="input input-bordered input-md w-full  my-2" />
 
-                    <input name='price' required type="number" placeholder="$ Price" class="input input-bordered input-md w-full max-w-xs my-2" />
+                    <input name='price' required type="number" placeholder="$ Price" className="input input-bordered input-md w-full  my-2" />
 
-                    <input name='availableQuantity' required type="number" placeholder="Available Quantity" class="input input-bordered input-md w-full max-w-xs my-2" />
-                    <button type='submit' className='btn btn-primary block mx-auto'>ADD PRODUCT</button>
+                    <input name='availableQuantity' required type="number" placeholder="Available Quantity" className="input input-bordered input-md w-full  my-2" />
+                    <button type='submit' className='btn btn-primary block mx-auto my-8'>ADD PRODUCT</button>
                 </form>
             </div>
         </div>

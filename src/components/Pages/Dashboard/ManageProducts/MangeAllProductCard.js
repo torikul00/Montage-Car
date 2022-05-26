@@ -3,18 +3,18 @@ const MangeAllProductCard = ({ part,setPartModalInfo }) => {
 
     const { name, description, image, price } = part
     return (
-        <div class="card bg-base-100 shadow-xl">
-            <figure class="px-10 pt-10">
-                <img className='w-28' src={image} alt="Shoes" class="rounded-xl" />
+        <div className="card bg-base-100 shadow-xl">
+            <figure className="px-10 pt-10">
+                <img className='w-28 rounded-xl' src={image} alt="Shoes"  />
             </figure>
-            <div class="card-body items-center">
-                <h2 class="card-title">{name}</h2>
-                <h2 class="card-title"> Price : ${price}</h2>
+            <div className="card-body items-center">
+                <h2 className="card-title">{name}</h2>
+                <h2 className="card-title"> Price : ${price}</h2>
                 
                 <p>{ description}</p>
-                <div class="card-actions">
+                <div className="card-actions">
                    
-                    <label onClick={()=>setPartModalInfo(part)} for="part-modal" class="btn btn-primary">Delete</label>
+                    <label onClick={()=>setPartModalInfo(part)} for="part-modal" className="btn btn-primary">Delete</label>
                 </div>
             </div>
         </div>
