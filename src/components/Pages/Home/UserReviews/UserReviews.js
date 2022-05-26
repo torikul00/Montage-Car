@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './UseReview.css'
 import UserReviewCard from './UserReviewCard';
-import { MdManageAccounts } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -30,7 +29,7 @@ const UserReviews = () => {
                     reviews?.map((review,index) =><UserReviewCard review={review} key={index} />).reverse().slice(0,3)
                 }
             </div>
-            <button onClick={()=>navigate('/allReviews')} className='btn btn-secondary btn-lg mx-auto block mb-12 text-base-100'>View All Reviews</button>
+            <button onClick={()=>navigate('/allReviews')} className='btn btn-secondary btn-lg mx-auto block mb-12 text-base-100'> View All Reviews </button>
 
         </section>
     );
