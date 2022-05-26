@@ -7,7 +7,6 @@ import logo from '../../../images/logo.png'
 import auth from '../../Shared/firebase.init';
 const Navbar = () => {
     let [user] = useAuthState(auth);
-
     const handleLogout = () => {
         signOut(auth)
         localStorage.removeItem('token')
@@ -40,6 +39,7 @@ const Navbar = () => {
                 <div className="navbar-end hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
                         <li><NavLink to='/'>Home</NavLink></li>
+                        <li><NavLink to='/myPortfolio'>Portfolio</NavLink></li>
                         <li>
                             <NavLink to='/blogs'>Blogs</NavLink>
                         </li>

@@ -23,6 +23,7 @@ import RequireAdmin from './components/Shared/RequireAdmin';
 import ManageAllOrders from './components/Pages/Dashboard/ManageAllOrders/ManageAllOrders';
 import AddProduct from './components/Pages/Dashboard/AddProduct/AddProduct';
 import ManageProducts from './components/Pages/Dashboard/ManageProducts/ManageProducts';
+import MyPortfolio from './components/Pages/MyPortfolio/MyPortfolio';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signUp' element={<SignUp />} />
+        <Route path='/myPortfolio' element={<MyPortfolio />} />
         <Route path='/allReviews' element={<RequireAuth><AllReviews /></RequireAuth>} />
         <Route path='/buy-part/:id' element={<RequireAuth><BuyParts /> </RequireAuth>} />
 

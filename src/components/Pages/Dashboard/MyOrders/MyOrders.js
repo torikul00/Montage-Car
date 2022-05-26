@@ -32,6 +32,7 @@ const MyOrders = () => {
 
   return (
     <>
+    <h1 className="text-3xl font-bold text-center text-secondary my-12">Your Orders</h1>
     <div className='grid lg:grid-cols-3 md:grid-cols-3 grid-cols-1 gap-5 p-8'>
       {
         orders?.map(order => <OrderCard setOrderModalInfo={setOrderModalInfo} order={order} key={order._id} />)

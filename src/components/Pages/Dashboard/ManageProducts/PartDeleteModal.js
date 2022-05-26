@@ -11,20 +11,14 @@ const PartDeleteModal = ({ partModalInfo, setPartModalInfo, refetch }) => {
             .then(res => res.json())
             .then(data => {
                 if (data.deletedCount) {
-
                     refetch()
                     setPartModalInfo(null)
                     toast.success(` ${name} Deleted seccessful `)
                 }
-
             })
     }
-
-
     return (
         <>
-
-
             <input type="checkbox" id="part-modal" class="modal-toggle" />
             <div class="modal modal-bottom sm:modal-middle">
                 <div class="modal-box">

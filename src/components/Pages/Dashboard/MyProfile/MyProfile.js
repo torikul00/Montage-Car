@@ -43,7 +43,7 @@ const MyProfile = () => {
         return <Loading/>
     }
     return (
-        <div className="prifile-container m-12">
+        <div className="prifile-container m-12 border shadow-xl p-8">
             <div>
                 <div class="avatar">
                     <div class="w-24 rounded-full">
@@ -58,7 +58,7 @@ const MyProfile = () => {
             <div className="user-info-container">
                 <h1 className='text-3xl '> Name :  {user?.displayName}</h1>
                 <h1 className='text-3xl mb-8'> Email :  {user?.email}</h1>
-                <h1 className='text-primary font-bold text-4xl'>More Info About User</h1>
+                <div className="divider"></div>
                 <h1 className='text-2xl'> Address :  {data?.address}</h1>
                 <h1 className='text-2xl'> City :  {data?.city}</h1>
                 <h1 className='text-2xl'> Profession :  {data?.profession}</h1>

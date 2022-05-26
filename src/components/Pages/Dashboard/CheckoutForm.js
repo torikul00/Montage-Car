@@ -133,7 +133,7 @@ const CheckoutForm = ({ product }) => {
                 {paymentError && <small className='text-red-400 my-4'>{paymentError}</small>}
                 {paySuccess && <p className='text-green-400 my-4'>{paySuccess}</p>}
                 {transactionID && <p className='text-green-400 my-4'> Transaction Id : {transactionID}</p>}
-                <button className='btn btn-secondary text-base-100 block mx-auto my-4' type="submit" disabled={!stripe}>
+                <button className='btn btn-secondary text-base-100 block mx-auto my-8' type="submit" disabled={!stripe}>
                     Pay Now
                 </button>
             </form>
