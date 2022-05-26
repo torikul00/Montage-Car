@@ -8,8 +8,6 @@ const useToken = (user) => {
     useEffect(() => {
 
         const email = user?.user?.email
-        const displayName = user?.user.displayName
-        const emailVerified = user?.user?.emailVerified
         const CurrentUser = { email}
         console.log(CurrentUser)
         if (email) {

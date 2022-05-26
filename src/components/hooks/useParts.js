@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
  
 const useParts = () => {
     
-    const { isLoading, error, data:parts } = useQuery('parts', () =>
+    const { isLoading, error, data:parts,refetch } = useQuery('parts', () =>
     fetch('http://localhost:5000/parts',{
       method: 'GET',
       headers: {
@@ -14,7 +14,7 @@ const useParts = () => {
     )
   )
 
-    return {parts,isLoading,error}
+    return {parts,isLoading,refetch}
 };
 
 export default useParts;

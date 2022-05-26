@@ -8,10 +8,8 @@ import Loading from '../../../Shared/Loading/Loading';
 
 const MyProfile = () => {
     const [user] = useAuthState(auth)
-
     const { data,isLoading,refetch } = useQuery('user', () => fetch(`http://localhost:5000/user/${user.email}`).then(res => res.json()))
 
-    console.log(data)
 
     const handleSubmit = (event) => {
         event.preventDefault()

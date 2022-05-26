@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import DeleteUsermModal from '../../Shared/DeleteUserModal'
 import Loading from '../../Shared/Loading/Loading';
+
 import UserCard from './UserCard';
 
 const Users = () => {
