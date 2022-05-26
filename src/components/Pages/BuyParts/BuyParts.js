@@ -5,8 +5,6 @@ import { useParams } from 'react-router-dom';
 import auth from '../../Shared/firebase.init';
 import Loading from '../../Shared/Loading/Loading';
 import './BuyParts.css'
-import { BsPlusSquare } from 'react-icons/bs';
-import { FiMinusSquare } from 'react-icons/fi';
 import { toast } from 'react-toastify';
 
 const BuyParts = () => {
@@ -81,8 +79,8 @@ const BuyParts = () => {
                 <div className='product-card'>
                     <img src={image} alt="" />
 
-                    <h3 className='text-2xl font-bold'>Available : {avai_quantity}</h3>
-                    <h3 className='text-2xl font-bold'>Minimum Quantity :  {min_quantity}</h3>
+                    <h3 className='text-xl font-bold'>Available : <span className='text-primary'>{avai_quantity}</span> pices</h3>
+                    <h3 className='text-xl font-bold'>Minimum Quantity :  <span className='text-primary'>{min_quantity}</span> pices</h3>
 
                 </div>
                 <div className='buy-product ml-8'>
@@ -93,7 +91,7 @@ const BuyParts = () => {
                         <input name='productName' type="text" disabled value={name} class="input input-bordered input-md w-full max-w-xs my-2" />
                         <input name='address' required placeholder='Address' type="text" class="input input-bordered input-md w-full max-w-xs" />
                         <input name='phoneNumber' required type="number" placeholder="Phone Number" class="input input-bordered input-md w-full max-w-xs my-2" />
-                        <input name='quantity' required type="number" placeholder="Quantity" class="input input-bordered input-md w-full max-w-xs my-2" />
+                        <input name='quantity'  required type="number" placeholder="Quantity" class="input input-bordered input-md w-full max-w-xs my-2" />
                         <button type='submit' className='btn btn-primary block mx-auto'>Place Now</button>
                     </form>
                 </div>
